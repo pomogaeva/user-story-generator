@@ -1,0 +1,28 @@
+{
+  "jira_url": "https://shortpoint.atlassian.net",
+  "email": "tetiana@shortpoint.com",
+  "output_dir": "./output",
+  "log_level": "INFO",
+  "schedule": {
+    "enabled": true,
+    "day": "monday",
+    "time": "09:00",
+    "timezone": "UTC"
+  },
+  "report_settings": {
+    "format": "markdown",
+    "include_analysis": true,
+    "sort_by_efficiency": true
+  },
+  "developer_mapping": {
+    "62bae2adfbc1f7c647b7f5c9": "Oluwatoyosi Oyegoke",
+    "623df1a61c7f6a00704ae991": "Nunu Olamilekan",
+    "61d2b0d6567cb70070bf0df8": "Ebubekir Tabak",
+    "712020:22e771c3-dbf3-430b-8a18-bea8684b5186": "Stephen Ng'ang'a",
+    "61d2b0d70586a200693a67a1": "Abd UlHameed Maree",
+    "6215b2f36b7e24006a7a22b5": "Ibrahim Amin",
+    "5ffd5092d3649601390394c1": "Haakon Løtveit",
+    "627944ad93111000689f8ce2": "Mohamed Abd El Aziz",
+    "712020:c35359ac-da76-4f3f-b301-14538f144ac6": "Alexander Moran"
+  }
+}

@@ -17,3 +17,11 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Sprint Reports Automation
+sprint-reports/output/
+sprint-reports/logs/
+sprint-reports/*.pyc
+sprint-reports/__pycache__/
+sprint-reports/.env
+sprint-reports/config/api_keys.json

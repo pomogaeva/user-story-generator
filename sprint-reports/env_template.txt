@@ -1,0 +1,25 @@
+# Jira Configuration
+# Copy this file to .env and fill in your actual values
+
+# Jira API Token (get from https://id.atlassian.com/manage-profile/security/api-tokens)
+JIRA_API_TOKEN=your_api_token_here
+
+# Jira Email (your Atlassian account email)
+JIRA_EMAIL=tetiana@shortpoint.com
+
+# Jira URL (your Atlassian instance)
+JIRA_URL=https://shortpoint.atlassian.net
+
+# Output directory for reports (optional, defaults to ./output)
+OUTPUT_DIR=./output
+
+# Log level (optional, defaults to INFO)
+LOG_LEVEL=INFO
+
+# Email notifications (optional)
+EMAIL_NOTIFICATIONS_ENABLED=false
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=
+SMTP_PASSWORD=
+NOTIFICATION_RECIPIENTS=tetiana@shortpoint.com
