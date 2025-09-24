@@ -1,6 +1,14 @@
-# 🤖 AI Efficiency Sprint Reports
+# 🎯 AI Efficiency Sprint Reports
 
 Automated reporting system that analyzes the impact of AI assistance on developer productivity by comparing traditional development estimates with actual effort when using AI tools.
+
+## ✨ Key Features
+
+- **🔍 Current Sprint Focus**: Only analyzes issues actively worked on in the current sprint
+- **❌ Carry-over Filtering**: Automatically excludes issues from previous sprints to show true sprint progress
+- **📊 Real-time Data**: Fetches live data from Jira (when configured with API credentials)
+- **📈 Efficiency Tracking**: Measures actual productivity improvements from AI assistance
+- **⏰ Automated Scheduling**: Bi-weekly report generation with smart scheduling
 
 ## 📋 Overview
 
@@ -9,6 +17,22 @@ This system generates reports that track:
 - **Dev Story Points (With AI)**: Actual effort when developers use AI assistance
 
 The goal is to see **lower numbers** in the AI column, indicating that AI tools are successfully reducing developer effort and increasing productivity.
+
+## 🎯 Sprint Filtering Logic
+
+The system automatically filters out **carry-over issues** from previous sprints to ensure reports reflect only work completed or actively worked on in the current sprint:
+
+### ✅ What's Included
+- Issues with "In Progress", "For Testing", "Done", or "Dev Review" status
+- Work actively being done in the current sprint
+- New issues created and worked on this sprint
+
+### ❌ What's Excluded
+- Issues that appeared in previous sprint reports (carry-overs)
+- Issues from previous sprints not actively worked on
+- Issues without story point estimates
+
+This ensures accurate sprint-by-sprint progress tracking and prevents double-counting of work across multiple sprints.
 
 ## 🏗️ Project Structure
 
@@ -71,16 +95,28 @@ python3 generate_sprint_report.py
 
 ### Manual Report Generation
 
-Generate a report for the current sprint:
+Generate a report for the current sprint (with filtering enabled):
 
 ```bash
+# Generate filtered report (default - excludes carry-overs)
 python3 generate_sprint_report.py
+
+# Generate report including carry-over issues (if needed)
+python3 ai_efficiency_reporter.py --include-carry-overs
 ```
 
-The script automatically:
+The scripts automatically:
 - Determines the current sprint number (Sprint 19, 20, 21...)
-- Fetches data from Jira using MCP tools
-- Generates a report with filename: `Sprint_XX_AI_Efficiency_Report_YYYYMMDD_HHMMSS.md`
+- Fetches live data from Jira (when configured with API credentials)
+- **Filters out carry-over issues** from previous sprints (default behavior)
+- Generates a report with filename: `Sprint_XX_FILTERED_AI_Efficiency_Report_YYYYMMDD_HHMMSS.md`
+
+### Live Data vs Static Data
+
+- **ai_efficiency_reporter.py**: Uses live Jira data via MCP tools (requires API credentials)
+- **generate_sprint_report.py**: Uses curated static data (updated manually)
+
+Both scripts apply the same filtering logic to exclude carry-over issues.
 
 ### Automated Scheduling
 
@@ -390,7 +426,23 @@ The goal is to see **lower numbers** in the AI column, indicating that AI tools 
 ```
 
 **Output Files:**
-Reports are saved as: `Sprint_19_AI_Efficiency_Report_20250917_155329.md`
+Reports are saved as: `Sprint_20_FILTERED_AI_Efficiency_Report_20250924_114643.md`
+
+## 🔍 Filtering Behavior
+
+### Default Behavior (Recommended)
+- **Excludes carry-overs** from previous sprints
+- Shows only work completed or actively worked on this sprint
+- Provides accurate sprint-by-sprint progress tracking
+
+### Override Option
+If you need to include carry-over issues for historical analysis:
+
+```bash
+python3 ai_efficiency_reporter.py --include-carry-overs
+```
+
+**Note**: This option is primarily for debugging or historical analysis. The default filtered behavior is recommended for accurate sprint tracking.
 
 ## 📞 Support
 
@@ -402,16 +454,26 @@ For questions or issues:
 
 ## 🔮 Future Enhancements
 
-- [ ] Real-time Jira MCP integration (currently uses static data)
+- [x] **✅ Carry-over filtering** (implemented - excludes previous sprint issues)
+- [x] **✅ Current sprint focus** (implemented - only analyzes active sprint work)
 - [ ] Email/Slack notifications when reports are generated
 - [ ] PDF report generation with charts and graphs
 - [ ] Historical trend analysis across multiple sprints
 - [ ] Team comparison reports and benchmarking
 - [ ] Integration with other tools (Confluence, Notion, Slack)
 - [ ] Dashboard web interface for viewing reports
-- [ ] Automatic sprint number detection from Jira
 - [ ] Custom field mapping configuration
 - [ ] Multi-team support with separate configurations
+- [ ] Automatic issue status tracking and updates
+
+## 🔄 Recent Updates
+
+### Version 2.0 (Current)
+- ✅ **Carry-over filtering**: Excludes issues from previous sprints
+- ✅ **Current sprint focus**: Only analyzes work actively done this sprint
+- ✅ **Enhanced tracking**: Shows completed vs in-progress work
+- ✅ **Better reporting**: More detailed sprint activity summaries
+- ✅ **Live data support**: When configured with Jira API credentials
 
 ## 📅 Sprint Schedule
 
