@@ -58,6 +58,18 @@ Before defining the story details, briefly explain:
 - Approval status.
 - Clearly indicate if this section is **not required**.
 
+#### **Design Components Reference**
+- **Component Library**: Reference specific UI components from design system
+- **Design Patterns**: Document interaction patterns and user flows
+- **Visual Specifications**: Include spacing, typography, and color requirements
+- **Responsive Behavior**: Define responsive design requirements
+
+#### **Design System Integration**
+- **Design Tokens**: Colors, typography scales, spacing values
+- **Component Variants**: Available component states and variations
+- **Accessibility Guidelines**: WCAG compliance and accessibility features
+- **Brand Guidelines**: Consistency with brand standards
+
 ---
 
 ### **FUNCTIONAL DETAILS**
@@ -67,8 +79,9 @@ Explain how the feature should work in detail:
 - Core functionality.
 - Field validations (Empty, Max, Min, etc.).
 - Special workflows, logic, or requirements.
+- **Design-driven functionality**: Behavior defined by design interactions and patterns.
 
-> **Avoid relying solely on Figma. Key functional details must be written here.**
+> **Note:** While Figma provides visual specifications, key functional requirements must be explicitly documented here. Reference design components and their expected behavior.
 
 ---
 
@@ -104,7 +117,11 @@ Describe any migration needs, limitations, legacy system support (e.g. SP2016), 
     
     > **Note:** Product areas testers should focus on are always mandatory to be indicated in "Affected Areas" field. 
     
-- **Design Review Needs** - UI/UX validation.
+- **Design Review Needs** - UI/UX validation including:
+  - Design system compliance verification
+  - Component usage validation against design specifications
+  - Interaction pattern testing against design prototypes
+  - Visual regression testing for design consistency
 - **Content Needs (Optional)** - articles, videos, review of the feature.
 - **Marketing Needs (Optional)** - website page, social media, webinars.
 - **Feature Requestor (Optional)** - indicate who requested this feature if different from the usual person/team.
@@ -161,16 +178,29 @@ The feature will benefit all users, primarily designers who spend extended time 
 - Designs provided in Figma: [link]
 - Designs approved by the UX team.
 
+#### **Design Components Reference**
+- **Button Component**: Use "Primary Button" variant from design system for main actions
+- **Card Component**: Apply "Elevated Card" style with subtle shadow and rounded corners
+- **Input Component**: Implement "Search Input" variant with search icon and clear functionality
+- **Navigation Pattern**: Follow "Breadcrumb Navigation" pattern for page hierarchy
+
+#### **Design System Integration**
+- **Color Tokens**: Use "brand-primary" for main actions, "neutral-600" for text
+- **Typography Scale**: Apply "heading-2" for page titles, "body-regular" for content
+- **Spacing Values**: Use "spacing-4" for component margins, "spacing-2" for internal padding
+- **Component States**: Include hover, focus, and disabled states following design system
+
 ---
 
 ### **FUNCTIONAL DETAILS**
 
-- Dark Mode toggle is located in the page header.
+- Dark Mode toggle is located in the page header using the "Toggle Button" component from design system.
 - Preference should be stored at the **account level** (not device-specific).
-- Default state is Light Mode.
-- Must support both classic and modern SharePoint experiences.
-- Dark Mode should affect **all screens** including preview, popups, and notifications.
-- Should follow WCAG color contrast guidelines.
+- Default state is Light Mode with smooth transition to Dark Mode.
+- Must support both classic and modern SharePoint experiences with appropriate fallbacks.
+- Dark Mode should affect **all screens** including preview, popups, and notifications using design system color tokens.
+- Should follow WCAG color contrast guidelines with design system accessibility features.
+- **Design-driven functionality**: Button hover states follow design system "Interactive Button" pattern with elevation changes.
 
 ---
 
@@ -205,7 +235,11 @@ The feature will benefit all users, primarily designers who spend extended time 
 
 - Validate on both modern and classic SP layouts.
 
-**Design Review Needs** - UI/UX review required.
+**Design Review Needs** - UI/UX validation including:
+- Design system compliance verification for all color tokens and typography scales
+- Component usage validation against design specifications for toggle button and card components
+- Interaction pattern testing against design prototypes for smooth transitions
+- Visual regression testing for design consistency across all affected screens
 
 **Content Needs** - the team should prepare an article, request has been added here: [link].
 
